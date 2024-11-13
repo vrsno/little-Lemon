@@ -4,7 +4,7 @@ import littlelemon_logo from "../imagenes/littlelemon_logo.png"
 const Nav = () => {
     return(
         <nav>
-            <img src={littlelemon_logo} alt="Little Lemon Logo" ></img>
+            <img  src={littlelemon_logo} alt="Little Lemon Logo" ></img>
             <ul>
                 <li><a>Home</a></li>
                 <li><a>About</a></li>

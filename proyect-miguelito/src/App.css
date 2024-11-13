@@ -1,11 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul{
+  list-style: none;
+}
 .App {
   text-align: center;
   font-family: 'Markazi Text', serif;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -30,6 +33,10 @@
   align-items: center;
 }
 
+ul li a{
+  cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -50,6 +57,7 @@ nav {
   justify-content: center;;
   z-index: 999;
   background-color: white;
+  
 }
 
 nav img {
@@ -62,22 +70,25 @@ nav ul li {
 }
 
 header {
-  padding-top: 150px;
+  padding: 30px 0;
   background-color: #495e57;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
 }
 
-header section {
-width:80%;
-margin-left: 10%;
-padding-bottom: 50px;
-color: #EDEFEE;
-
+header section div{
+  width:80%;
+  color: #EDEFEE;
+  padding: 20px;
 }
 
 
 h2 {
   color: #F4CE14;
   font-size: 40pt;
+  margin-top: 20px;
 }
 
 h3 {
@@ -117,6 +128,8 @@ footer section {
 
 footer {
   padding: 20px;
+  background-color: #000;
+  color: #fff;
 }
 
 footer img {
@@ -142,7 +155,7 @@ footer section {
   display:grid;
 }
 header section {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr ;
   display:grid;
   justify-items: center;
 }
