@@ -6,6 +6,7 @@ const BookingForm = (props) => {
   const [date, setDate] = useState("");
   const [times, setTimes] = useState("");
 
+  // Función que maneja el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     props.submitForm({
@@ -16,6 +17,7 @@ const BookingForm = (props) => {
     });
   };
 
+  // Función que maneja el cambio de fecha
   const handleChange = (e) => {
     const newDate = e.target.value;
     setDate(newDate);
@@ -45,42 +47,49 @@ const BookingForm = (props) => {
                 required
               />
             </div>
+
             <div>
               <label htmlFor="book-time">Choose Time</label>
               <select
                 id="book-time"
                 value={times}
-                onChange={(e) => setTimes(e.target.value)}
+                onChange={(e) => setTimes(e.target.value)} // Establecemos el tiempo seleccionado
                 required
               >
                 <option value="">Select a Time</option>
-                {Array.isArray(props.availableTimes) &&
+                {/* Verificamos que 'props.availableTimes' sea un array y tiene valores */}
+                {Array.isArray(props.availableTimes) && props.availableTimes.length > 0 ? (
                   props.availableTimes.map((availableTime, index) => (
                     <option key={index} value={availableTime}>
-                      {availableTime}
+                      {availableTime} {/* Muestra cada hora como opción */}
                     </option>
-                  ))}
+                  ))
+                ) : (
+                  <option disabled>No available times</option> // Si no hay tiempos disponibles, muestra un mensaje
+                )}
               </select>
             </div>
+
             <div>
               <label htmlFor="book-guests">Number of Guests</label>
               <input
                 id="book-guests"
                 min="1"
                 value={guests}
-                onChange={(e) => setGuests(e.target.value)}
+                onChange={(e) => setGuests(e.target.value)} // Actualiza el número de invitados
                 type="number"
-                placeholder={0}
-                max={10}
+                placeholder="0"
+                max="10"
                 required
               />
             </div>
+
             <div>
               <label htmlFor="book-occasion">Occasion</label>
               <select
                 id="book-occasion"
                 value={occasion}
-                onChange={(e) => setOccasion(e.target.value)}
+                onChange={(e) => setOccasion(e.target.value)} // Actualiza la ocasión seleccionada
                 required
               >
                 <option value="">Select an Option</option>
@@ -88,6 +97,7 @@ const BookingForm = (props) => {
                 <option>Anniversary</option>
               </select>
             </div>
+
             <div>
               <input aria-label="On Click" type="submit" value="Make Your Reservation" />
             </div>
